@@ -1,306 +1,199 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Para Ti, Mi Vida ❤️</title>
-
-  <!-- FUENTES -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      min-height: 100vh;
-      color: white;
-      overflow-x: hidden;
-    }
-
-    /* VIDEO DE FONDO */
-    #bg-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -2;
-    }
-
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        rgba(255, 120, 150, 0.45),
-        rgba(255, 80, 120, 0.55)
-      );
-      z-index: -1;
-    }
-
-    /* CARTA */
-    .envelope {
-      position: relative;
-      width: 340px;
-      height: 230px;
-      margin: 100px auto 40px;
-      cursor: pointer;
-      perspective: 1000px;
-    }
-
-    .envelope-top {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #ff4d6d, #ff758c);
-      clip-path: polygon(0 0, 50% 50%, 100% 0, 100% 100%, 0 100%);
-      transform-origin: top;
-      transition: transform 1.2s;
-      z-index: 3;
-    }
-
-    .letter {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: #fff;
-      color: #ff4d6d;
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-      transform: translateY(50px);
-      opacity: 0;
-      transition: all 1.2s;
-      z-index: 2;
-    }
-
-    .letter h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2.6rem;
-      margin-bottom: 10px;
-    }
-
-    .letter p {
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    .envelope.open .envelope-top {
-      transform: rotateX(180deg);
-    }
-
-    .envelope.open .letter {
-      transform: translateY(-20px);
-      opacity: 1;
-    }
-
-    /* SECCIONES */
-    section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 25px;
-      background: rgba(255,255,255,0.15);
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-    }
-
-    section h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 2rem;
-    }
-
-    section p {
-      line-height: 1.8;
-      font-size: 1.1rem;
-      text-align: center;
-    }
-
-    /* BOTÓN */
-    .btn {
-      display: block;
-      margin: 20px auto;
-      padding: 15px 30px;
-      font-size: 1.1rem;
-      border: none;
-      border-radius: 30px;
-      background: #ff4d6d;
-      color: #fff;
-      cursor: pointer;
-      transition: transform 0.4s;
-    }
-
-    .btn:hover { transform: scale(1.1); }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      opacity: 0.9;
-    }
-
-    /* CORAZONES */
-    .heart {
-      position: fixed;
-      bottom: -20px;
-      font-size: 22px;
-      animation: floatUp 6s linear infinite;
-      opacity: 0.8;
-    }
-
-    @keyframes floatUp {
-      from { transform: translateY(0); }
-      to { transform: translateY(-110vh); }
-    }
-
-    /* INTRO PAQUETE */
-    .intro {
-      position: fixed;
-      inset: 0;
-      background: linear-gradient(135deg, #ff4d6d, #ff8fab);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 999;
-      animation: introFade 4s forwards;
-    }
-
-    .package {
-      width: 200px;
-      height: 140px;
-      background: #fff;
-      border-radius: 10px;
-      position: relative;
-      text-align: center;
-      animation: packageOpen 4s forwards;
-    }
-
-    .package p {
-      position: absolute;
-      bottom: 15px;
-      width: 100%;
-      color: #ff4d6d;
-      font-weight: 600;
-    }
-
-    .seal {
-      width: 60px;
-      height: 60px;
-      background: #ff4d6d;
-      border-radius: 50%;
-      margin: 30px auto 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      animation: sealPop 4s forwards;
-    }
-
-    @keyframes packageOpen {
-      0% { transform: scale(1); }
-      60% { transform: scale(1.1); }
-      100% { transform: scale(0); }
-    }
-
-    @keyframes sealPop {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.3); }
-      100% { transform: scale(0); }
-    }
-
-    @keyframes introFade {
-      0% { opacity: 1; }
-      100% { opacity: 0; visibility: hidden; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Plantillas Premium</title>
+    <style>
+        :root { --primary: #ff4b2b; --secondary: #00c6ff; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0f0f0f; color: white; padding: 30px; }
+        .container { max-width: 1000px; margin: auto; background: #1a1a1a; padding: 40px; border-radius: 20px; border: 1px solid #333; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        h1 { text-align: center; background: linear-gradient(to right, #ff416c, #ff4b2b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 32px; margin-bottom: 30px; }
+        label { display: block; margin-bottom: 10px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 1px; font-size: 12px; }
+        textarea, input { width: 100%; border-radius: 12px; border: 1px solid #333; background: #0a0a0a; color: #eee; padding: 15px; margin-bottom: 20px; box-sizing: border-box; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        button { width: 100%; padding: 18px; border: none; border-radius: 12px; cursor: pointer; font-weight: 800; transition: 0.4s; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; }
+        .btn-gen { background: white; color: black; margin-bottom: 10px; }
+        .btn-gen:hover { background: var(--primary); color: white; transform: translateY(-3px); }
+        #outputCode { height: 250px; display: none; border: 1px dashed #555; font-family: 'Courier New', Courier, monospace; font-size: 12px; }
+    </style>
 </head>
 <body>
 
-  <!-- INTRO PAQUETE CARTA -->
-  <div id="intro" class="intro">
-    <div class="package">
-      <div class="seal">💌</div>
-      <p>Abriendo tu carta...</p>
+<div class="container">
+    <h1>🎬 Cinema Template Creator Pro</h1>
+    
+    <label>1. Pega la información de la película (Código sucio):</label>
+    <textarea id="inputCode" rows="8" placeholder="Pega aquí el bloque que contiene data-backdrop, títulos, etc..."></textarea>
+
+    <label>2. Pega el Iframe del Video (Código completo del reproductor):</label>
+    <input type="text" id="inputIframe" placeholder='Ej: <iframe src="https://servidor.com/video"></iframe>'>
+
+    <button class="btn-gen" onclick="generateTemplate()">Generar Plantilla Profesional</button>
+    
+    <label>3. Resultado:</label>
+    <textarea id="outputCode" readonly></textarea>
+</div>
+
+<script>
+function generateTemplate() {
+    const raw = document.getElementById('inputCode').value;
+    const iframeRaw = document.getElementById('inputIframe').value;
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(raw, 'text/html');
+
+    // EXTRACCIÓN MEJORADA
+    const title = doc.querySelector('li[data]') ? doc.querySelector('li[data]').getAttribute('data') : "Título Película";
+    const poster = doc.querySelector('img') ? doc.querySelector('img').src : "";
+    const backdrop = doc.querySelector('.post-details') ? doc.querySelector('.post-details').getAttribute('data-backdrop') : "";
+    const synopsis = doc.getElementById('tmdb-synopsis') ? doc.getElementById('tmdb-synopsis').innerText : "Sin descripción disponible.";
+    const year = doc.querySelector('li[data-year]') ? doc.querySelector('li[data-year]').getAttribute('data-year') : "";
+    const duration = doc.querySelector('li[data-duartion]') ? doc.querySelector('li[data-duartion]').getAttribute('data-duartion') : "";
+    const genres = doc.querySelector('li[data-genres]') ? doc.querySelector('li[data-genres]').getAttribute('data-genres') : "Cine";
+
+    // Limpieza de Iframe para asegurar que sea responsivo
+    const videoSrc = iframeRaw.match(/src=["']([^"']+)["']/);
+    const finalVideoUrl = videoSrc ? videoSrc[1] : "#";
+
+    const finalHTML = `<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${title} - Ver Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --accent: #ff4b2b; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background: #050505; color: #fff; line-height: 1.6; }
+        
+        /* Background Layer */
+        .main-hero { 
+            position: relative; min-height: 100vh; width: 100%;
+            display: flex; align-items: center; justify-content: center;
+            background: url('${backdrop}') center/cover no-repeat fixed;
+            padding: 40px 5%;
+        }
+
+        .main-hero::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.95) 100%);
+            z-index: 1;
+        }
+
+        /* Content UI */
+        .content-wrapper {
+            position: relative; z-index: 2; display: flex; gap: 60px;
+            max-width: 1300px; width: 100%; align-items: flex-start;
+            animation: fadeIn 1.2s ease;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .poster-side { flex-shrink: 0; width: 320px; position: sticky; top: 40px; }
+        .poster-img { 
+            width: 100%; border-radius: 16px; box-shadow: 0 30px 60px rgba(0,0,0,0.7);
+            border: 1px solid rgba(255,255,255,0.1); transition: 0.5s;
+        }
+        .poster-img:hover { transform: scale(1.03) rotate(-1deg); }
+
+        .info-side { flex-grow: 1; }
+        .movie-title { font-size: clamp(40px, 6vw, 75px); font-weight: 900; line-height: 1.1; margin-bottom: 20px; letter-spacing: -2px; }
+        
+        .meta-strip { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; color: #bbb; font-weight: 500; }
+        .quality-tag { background: #fff; color: #000; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 900; }
+
+        .genre-list { display: flex; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
+        .genre-tag { 
+            padding: 8px 20px; border-radius: 100px; background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px); font-size: 14px; border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .synopsis { font-size: 18px; color: #ccc; max-width: 700px; margin-bottom: 40px; font-weight: 300; }
+
+        .btn-play {
+            display: inline-flex; align-items: center; gap: 12px;
+            padding: 18px 45px; background: var(--accent); color: white;
+            text-decoration: none; border-radius: 12px; font-weight: 700;
+            font-size: 18px; transition: 0.3s; cursor: pointer;
+            box-shadow: 0 15px 30px rgba(255, 75, 43, 0.3);
+        }
+        .btn-play:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(255, 75, 43, 0.5); }
+
+        /* Player Modal */
+        #player-modal {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.95);
+            display: none; z-index: 9999; flex-direction: column;
+            padding: 20px;
+        }
+        .close-modal { align-self: flex-end; font-size: 40px; cursor: pointer; padding: 10px; color: #888; }
+        .iframe-container { width: 100%; max-width: 1100px; aspect-ratio: 16/9; margin: auto; background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 0 100px rgba(255,75,43,0.2); }
+        iframe { width: 100%; height: 100%; border: none; }
+
+        @media (max-width: 1000px) {
+            .content-wrapper { flex-direction: column; align-items: center; text-align: center; }
+            .meta-strip { justify-content: center; }
+            .genre-list { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<section class="main-hero">
+    <div class="content-wrapper">
+        <div class="poster-side">
+            <img class="poster-img" src="${poster}" alt="Poster">
+        </div>
+        
+        <div class="info-side">
+            <div class="meta-strip">
+                <span class="quality-tag">4K ULTRA HD</span>
+                <span>${year}</span>
+                <span>•</span>
+                <span>${duration}</span>
+            </div>
+            <h1 class="movie-title">${title}</h1>
+            <div class="genre-list">
+                <span class="genre-tag">${genres.split(',').join('</span><span class="genre-tag">')}</span>
+            </div>
+            <p class="synopsis">${synopsis}</p>
+            
+            <div class="btn-play" onclick="togglePlayer(true)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                VER AHORA
+            </div>
+        </div>
     </div>
-  </div>
+</section>
 
-  <!-- VIDEO DE FONDO -->
-  <video id="bg-video" autoplay muted loop playsinline>
-    <source src="https://github.com/MorelDa/musica-web/raw/refs/heads/main/a06261fd54bc4144a2d11abab465a970.cnvs.mp4" type="video/mp4">
-  </video>
-  <div class="overlay"></div>
-
-  <!-- AUDIO POR URL -->
-  <audio id="audio" src="https://github.com/MorelDa/musica-web/raw/refs/heads/main/grecia%20morrmp3.mp3" preload="auto" autoplay></audio>
-
-  <!-- CARTA -->
-  <div class="envelope">
-    <div class="envelope-top"></div>
-    <div class="letter">
-      <h1>Para Ti, Mi Vida 💖</h1>
-      <p>
-        Este detalle está hecho por <strong>Kevin</strong><br>
-        para la mujer que ama.<br><br>
-        Para ti, mi vida ❤️
-      </p>
-      <button class="btn" onclick="document.getElementById('audio').play()">Escucha nuestra canción 🎶</button>
+<div id="player-modal">
+    <span class="close-modal" onclick="togglePlayer(false)">&times;</span>
+    <div class="iframe-container">
+        <iframe src="${finalVideoUrl}" allowfullscreen sandbox="allow-scripts allow-same-origin"></iframe>
     </div>
-  </div>
+</div>
 
-  <section>
-    <h2>Mi Amor por Ti</h2>
-    <p>
-      Desde que llegaste a mi vida todo cambió. Amarte es mi elección diaria,
-      mi pensamiento constante y mi sentimiento más sincero.
-      No hay lugar donde prefiera estar que a tu lado.
-    </p>
-  </section>
-
-  <section>
-    <h2>Un Mensaje Especial</h2>
-    <p id="mensaje">Eres mi casualidad más bonita y mi destino favorito.</p>
-    <button class="btn" onclick="cambiarMensaje()">Tócame 💕</button>
-  </section>
-
-  <footer>Hecho con ❤️ solo para ti</footer>
-
-  <script>
-    // Al cargar la página
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.getElementById('intro').style.display = 'none';
-        document.querySelector('.envelope').classList.add('open');
-        document.getElementById('audio').play();
-      }, 4000);
-    });
-
-    const mensajes = [
-      "Te amo más de lo que imaginas 💖",
-      "Mi lugar favorito siempre será contigo ✨",
-      "Eres mi sueño hecho realidad 🥰",
-      "Mi futuro siempre te incluye ❤️"
-    ];
-
-    function cambiarMensaje() {
-      const mensaje = document.getElementById('mensaje');
-      mensaje.innerText = mensajes[Math.floor(Math.random() * mensajes.length)];
+<script>
+    function togglePlayer(show) {
+        document.getElementById('player-modal').style.display = show ? 'flex' : 'none';
+        if(!show) {
+            const iframe = document.querySelector('iframe');
+            const src = iframe.src;
+            iframe.src = src; // Detener video al cerrar
+        }
     }
+    document.addEventListener('contextmenu', e => e.preventDefault());
+<\/script>
 
-    function crearCorazon() {
-      const c = document.createElement('div');
-      c.className = 'heart';
-      c.innerText = '❤️';
-      c.style.left = Math.random() * 100 + 'vw';
-      document.body.appendChild(c);
-      setTimeout(() => c.remove(), 6000);
-    }
+</body>
+</html>`;
 
-    setInterval(crearCorazon, 500);
-  </script>
-
+    const output = document.getElementById('outputCode');
+    output.value = finalHTML;
+    output.style.display = 'block';
+    output.select();
+    alert("¡Código profesional generado!");
+}
+</script>
 </body>
 </html>
